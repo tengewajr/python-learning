@@ -3,11 +3,8 @@
 Program 3 – Number Guessing Game
 Generate a random number between 1 and 20.
 
-Keep asking the user to guess until they get the correct answer. 
-Display messages like:
-Too High
-Too Low
-Correct!
+Keep asking the user to guess until they get the correct answer. Display messages like:
+Too High Too Low Correct!
 """
 
 print("Welcome to the Number Guessing Game!")
