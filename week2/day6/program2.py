@@ -18,7 +18,7 @@ print("===== MOTOR SENSOR DATA GENERATOR =====")
 import csv
 import random
 
-with open("motor_sensor_data.csv", "w", newline="") as file:
+with open("motor_data.csv", "w", newline="") as file:
 
     writer = csv.writer(file) 
 
@@ -52,4 +52,4 @@ with open("motor_sensor_data.csv", "w", newline="") as file:
 
         writer.writerow([time, temperature, voltage, current, rpm])
 
-print("\n 100 Motor sensor data has been generated and saved to 'motor_sensor_data.csv'.")
+print("\n 100 Motor sensor data has been generated and saved to 'motor_data.csv'.")
