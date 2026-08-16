@@ -11,7 +11,7 @@ print("===== MOTOR SENSOR DATA SUMMARY =====")
 
 temperatures = []
 
-with open("motor_data.csv", "r") as file:
+with open("week2/day6/motor_data.csv", "r") as file:
     reader = csv.DictReader(file) 
     """read the CSV file as a dictionary, 
     where each row is represented as a dictionary with column headers as keys."""
