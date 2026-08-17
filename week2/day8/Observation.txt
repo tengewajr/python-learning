@@ -1,0 +1,30 @@
+Think About the Data
+After creating your graphs, answer:
+1.	Does the temperature remain stable?
+2.	Are there sudden increases?
+3.	Does RPM remain stable?
+4.	Does current change significantly?
+5.	Do any variables appear to change together?
+
+Write your answers in a short text file:
+
+observations.txt
+
+
+ANSWERS
+DAY 8 MOTOR SENSOR DATA OBSERVATIONS
+
+1. Temperature Observation
+The motor temperature fluctuated throughout the observation period, with several increases and decreases rather than remaining constant.
+
+2. Sudden Changes
+Several sudden increases in temperature, RPM, and current were observed at different time intervals.
+
+3. RPM Observation
+The RPM fluctuated considerably throughout the observation period, indicating variations in motor operating speed.
+
+4. Current Observation
+The motor current fluctuated throughout the observation period, with several sudden increases and decreases.
+
+5. Temperature and Current Relationship
+Some intervals show temperature and current increasing or decreasing together. However, the relationship is not consistent throughout the entire dataset.
