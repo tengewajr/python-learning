@@ -1,0 +1,21 @@
+Observations from Motor Health Analysis
+The motor sensor data showed fluctuations in temperature, current, and RPM throughout the recorded period.
+Several readings exceeded the selected temperature and current thresholds, while some RPM readings fell below the selected minimum.
+The health classification demonstrated how multiple sensor abnormalities can be combined to determine an overall motor condition.
+A single abnormal sensor reading was classified as WARNING, while two or more abnormal readings were classified as CRITICAL.
+The analysis demonstrates the basic principle of condition monitoring, where sensor data is continuously evaluated to identify possible abnormal operating conditions.
+
+
+Why these thresholds were chosen?
+
+=> Important: These thresholds were selected for programming and learning purposes only. They are not scientifically validated motor safety limits.
+
+Parameter	Exercise Threshold	Reason
+Temperature	> 70°C	Chosen to demonstrate detection of elevated motor temperature.
+Current	> 9.5 A	Chosen to demonstrate detection of unusually high current consumption.
+RPM	< 1450 RPM	Chosen to demonstrate detection of reduced motor speed.
+
+
+	
+	
+	
