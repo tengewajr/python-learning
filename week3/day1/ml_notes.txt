@@ -1,0 +1,23 @@
+DAY 1 – INTRODUCTION TO MACHINE LEARNING
+
+Program 1 – Simple Classification Example
+
+Dataset:
+Hours Studied | Attendance | Result
+2             | 60         | Fail
+4             | 70         | Fail
+6             | 80         | Pass
+8             | 90         | Pass
+
+Features:
+- Hours Studied
+- Attendance
+
+Label:
+- Result
+
+ML Problem Type:
+- Classification
+
+Reason:
+The model predicts categorical outcomes: Pass or Fail.
