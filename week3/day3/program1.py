@@ -1,15 +1,9 @@
-# Program 1 – Train a Classification Model 
-"""Use: Iris Dataset with Decision Tree 
-Train a model to predict the type of Iris flower. 
-
-You should: 
-1. Load the dataset.  
-2. Separate features and labels.  
-3. Split the dataset into training and testing data.  
-4. Create a Decision Tree model.  
-5. Train it.  
-6. Make predictions.  
-7. Check the accuracy.  
+#Practical Work 
+"""Use yesterday's Iris model. 
+Program 1 – Accuracy 
+Calculate the model's accuracy. 
+Example: 
+Model Accuracy: 94%
 """
 
 from sklearn.datasets import load_iris 
@@ -17,9 +11,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
 
-print ("==== IRIS CLASSIFICATION MODEL ====")
+print ("==== CHECKING ACCURACY ====")
 
-# 1. Load the dataset
+# 1. Load the datset
 iris=load_iris()
 
 # 2. Separate features and labels
@@ -46,6 +40,6 @@ predictions=model.predict(X_test)
 # 7. Check accuracy
 accuracy=accuracy_score(y_test, predictions)
 
-print(f"Accuracy: {accuracy:.2f}")
+print(f"Model Accuracy: {accuracy:.2%}")
 
 
