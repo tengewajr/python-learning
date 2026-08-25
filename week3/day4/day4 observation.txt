@@ -1,0 +1,14 @@
+MODEL COMPARISON
+
+Question 1:
+Which model performed better?
+
+The Decision Tree Regressor performed better on the test dataset. It achieved an R² score of 0.62, while the Linear Regression model achieved an R² score of 0.58.
+
+
+Question 2:
+Why do you think it performed better?
+
+The Decision Tree Regressor may have performed better because it can capture non-linear relationships and more complex patterns in the dataset. Linear Regression assumes a more linear relationship between the input features and the target. Therefore, the Decision Tree may have been better suited to the patterns present in this dataset.
+
+However, this result does not mean that Decision Tree Regression is always better than Linear Regression. It only performed better in this particular experiment and test split.

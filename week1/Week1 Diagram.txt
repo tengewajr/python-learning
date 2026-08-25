@@ -1,0 +1,52 @@
+                 WEEK 1: PYTHON PROGRAMMING
+                           │
+                           ▼
+                  ┌─────────────────┐
+                  │ Python Basics   │
+                  │ Variables       │
+                  │ Data Types      │
+                  │ Input / Output  │
+                  └────────┬────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ Control Structures│
+                 │ if / elif / else  │
+                 │ Comparison &      │
+                 │ Logical Operators │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ Loops & Lists     │
+                 │ for / while       │
+                 │ range()           │
+                 │ append()          │
+                 │ insert()          │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ Functions         │
+                 │ Parameters        │
+                 │ Return Values     │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ Dictionaries      │
+                 │ Keys / Values     │
+                 │ Dictionary Methods│
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ Practical Python  │
+                 │ Programs & Tasks  │
+                 └─────────┬─────────┘
+                           │
+                           ▼
+                 ┌───────────────────┐
+                 │ Git & GitHub       │
+                 │ Commit → Push     │
+                 └───────────────────┘

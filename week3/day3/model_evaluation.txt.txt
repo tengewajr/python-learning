@@ -1,0 +1,29 @@
+Question 1:
+If a model has 95% accuracy, does that automatically mean it is a good model?
+
+Answer:
+No. A model having 95% accuracy does not automatically mean it is a good model. Accuracy only tells us the overall percentage of correct predictions. We also need to consider metrics such as precision, recall and F1-score, as well as the purpose and characteristics of the dataset. A model can have high accuracy but still perform poorly on an important class such as motor faults.
+
+
+Question 2:
+Why might accuracy be misleading?
+
+Answer:
+Accuracy can be misleading when the dataset contains imbalanced classes. A model may achieve a high accuracy by correctly predicting the majority class while performing poorly on the minority class. For example, if most motor records are healthy, a model could achieve high accuracy by mostly predicting "Healthy" while failing to detect actual motor faults. Therefore, precision, recall and F1-score should also be considered.
+
+
+Question 3:
+What is the difference between precision and recall?
+
+Answer:
+Precision measures how many of the samples predicted as positive are actually positive. Recall measures how many of the actual positive samples the model successfully identifies. In simple terms, precision focuses on the correctness of positive predictions, while recall focuses on detecting as many actual positive cases as possible.
+
+
+Question 4:
+For a system trying to detect a dangerous motor failure, which might be more important: Missing a real fault or incorrectly warning about a healthy motor?
+
+Answer:
+Missing a real motor fault is generally more dangerous than incorrectly warning about a healthy motor. Missing a real fault is a false negative, meaning the system fails to detect an actual problem. This could allow a damaged motor to continue operating and potentially cause equipment damage, unexpected downtime, or safety risks. An incorrect warning about a healthy motor is a false positive and may cause unnecessary inspection or maintenance, but it is generally safer than failing to detect a dangerous fault. Therefore, high recall may be particularly important for a motor fault detection system.
+
+
+Observation: Changing random_state changes the way the dataset is divided into training and testing sets. With random_state=42, the Decision Tree achieved 100% accuracy on the 30 test samples, while random_state=100 produced 96.67% accuracy with one Versicolor sample misclassified as Virginica. This demonstrates that model evaluation can vary depending on the train/test split. random_state does not directly improve model performance; it ensures that a particular random split can be reproduced.
