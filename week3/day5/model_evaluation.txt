@@ -1,0 +1,74 @@
+MODEL EVALUATION OBSERVATION
+
+The Decision Tree model achieved an accuracy of 50.00% on
+the six testing records. This means that the model correctly
+predicted 3 out of 6 test records.
+
+The precision was 66.67%, meaning that when the model
+predicted Pass, 66.67% of those predictions were actually Pass.
+
+The recall was 50.00%, meaning that the model correctly
+identified 50% of the students who actually passed.
+
+The F1-score was 57.14%, which represents the balance between
+precision and recall.
+
+The confusion matrix was:
+
+[[1 1]
+ [2 2]]
+
+Using the order [Fail, Pass], the model correctly classified
+1 Fail and 2 Pass records, while incorrectly classifying
+1 Fail and 2 Pass records.
+
+The relatively low evaluation performance may be influenced
+by the small dataset, since only 6 records were used for testing.
+Therefore, the results should not be treated as a reliable
+measure of real-world student performance.
+
+---------------------------------------------------------------------
+ACCURACY
+↓
+How many predictions overall were correct?
+
+PRECISION
+↓
+When I predict PASS, how often am I right?
+
+RECALL
+↓
+Of the students who REALLY PASS, how many did I find?
+
+F1-SCORE
+↓
+How well do Precision + Recall balance each other?
+
+CONFUSION MATRIX
+↓
+Exactly where did the model get things right and wrong?
+---------------------------------------------------------------------
+
+Questions
+
+1. What is Machine Learning?
+
+Machine Learning is a branch of Artificial Intelligence that enables computer systems to learn patterns from data and use those learned patterns to make predictions or decisions without being explicitly programmed with rules for every situation.
+
+2. What is a feature? What is a label?
+
+A feature is an input variable used by a Machine Learning model to learn patterns and make predictions. A label is the known target/output that the model learns to predict in supervised learning.
+
+3. Why did we split our dataset into training and testing data?
+
+We split the dataset so that the model can learn patterns from the training data and then be evaluated using previously unseen testing data. This helps determine whether the model can generalize its learned patterns to new data rather than simply memorizing the training examples.
+
+4. What does fit() do? What does predict() do?
+
+fit() trains the model by allowing it to learn patterns from the training features and their known labels.
+
+predict() uses the patterns learned during training to make predictions for new or unseen data.
+
+5. Your model has 95% accuracy. Does that mean it is perfect?
+
+No. A 95% accuracy score means that 95% of the evaluated predictions were correct, but it does not mean that the model is perfect. Accuracy can be misleading, especially when the classes are imbalanced. Therefore, other metrics such as precision, recall, F1-score, and the confusion matrix should also be considered when evaluating a Machine Learning model.
