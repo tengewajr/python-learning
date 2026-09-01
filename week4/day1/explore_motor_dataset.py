@@ -1,3 +1,14 @@
+#Day 1 – Understanding the Motor Problem 
+"""Use Pandas to display and understand the dataset.
+Display: 
+  • First 5 rows
+  • Last 5 rows
+  • Number of rows
+  • Number of columns
+  • Column names  • Data types  • Missing values 
+  • Data types
+  • Missing values
+"""
 import pandas as pd
 
 print("===== AI4I 2020 PREDICTIVE MAINTENANCE DATASET =====")
