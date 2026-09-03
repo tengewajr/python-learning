@@ -1,5 +1,9 @@
 # Day 4 – Improving & Understanding the Model
-# Compare Decision Tree and Random Forest
+"""
+Compare Decision Tree and Random Forest Models for Motor Fault Detection
+Feature Importance and Confusion Matrix Interpretation
+Graphical Representation of Feature Importance
+"""
 
 import pandas as pd
 
