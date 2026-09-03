@@ -1,0 +1,93 @@
+DAY 4 – MOTOR MODEL COMPARISON
+Predictive Maintenance & Motor Fault Detection
+
+Dataset:
+AI4I 2020 Predictive Maintenance Dataset
+
+Train/Test Split:
+Training records: 8,000
+Testing records: 2,000
+Split: 80% training / 20% testing
+random_state: 42
+stratify: y
+
+Models Compared:
+1. Decision Tree Classifier
+2. Random Forest Classifier (100 trees)
+
+MODEL PERFORMANCE
+------------------------------------------------------------
+Model              Accuracy    Precision    Recall    F1
+Decision Tree      97.85%      68.66%       67.65%    68.15%
+Random Forest      98.10%      89.47%       50.00%    64.15%
+
+CONFUSION MATRICES
+------------------------------------------------------------
+Decision Tree:
+[[1911   21]
+ [  22   46]]
+
+Using the standard binary-class convention:
+[[TN  FP]
+ [ FN  TP]]
+
+where 
+TN - True Negative "True Normals"
+FP - False Positive "False Alarms"
+FN - False Negative "Missed Failures"
+TP - True Positive "Caught Failures"
+
+TN = 1,911: Healthy motors correctly predicted as healthy.
+FP =    21: Healthy motors incorrectly predicted as failures.
+FN =    22: Failed motors incorrectly predicted as healthy.
+TP =    46: Failed motors correctly detected as failures.
+
+Random Forest:
+[[1928    4]
+ [  34   34]]
+
+TN = 1,928: Healthy motors correctly predicted as healthy.
+FP =     4: Healthy motors incorrectly predicted as failures.
+FN =    34: Failed motors incorrectly predicted as healthy.
+TP =    34: Failed motors correctly detected as failures.
+
+FEATURE IMPORTANCE – RANDOM FOREST
+------------------------------------------------------------
+Torque [Nm]                0.316930 (31.69%)
+Rotational speed [rpm]     0.233269 (23.33%)
+Tool wear [min]            0.168841 (16.88%)
+Air temperature [K]        0.135303 (13.53%)
+Process temperature [K]    0.121558 (12.16%)
+Type_L                     0.011088 (1.11%)
+Type_M                     0.008193 (0.82%)
+Type_H                     0.004818 (0.48%)
+
+INTERPRETATION
+------------------------------------------------------------
+Random Forest achieved slightly higher accuracy (98.10%) and
+much higher precision (89.47%) than the Decision Tree (97.85%
+accuracy, 68.66% precision). However, Random Forest recall was
+only 50.00%, meaning it detected 34 of the 68 actual failure
+cases and missed 34 failures.
+
+Decision Tree achieved higher recall (67.65%) and higher F1-score
+(68.15%) than Random Forest (50.00% recall, 64.15% F1-score).
+It correctly detected 46 of the 68 actual failure cases and
+missed 22 failures.
+
+For a predictive-maintenance fault-detection task, missing a real
+failure (false negative) can be more concerning than generating
+a false alarm (false positive). Therefore, based on the current
+results and the goal of detecting motor failures, the Decision
+Tree is selected as the better model for Version 1.
+
+Important:
+Feature importance shows which features the Random Forest found
+useful for making predictions. It does not prove that a feature
+causes motor failure. Also, the AI4I dataset is synthetic, so
+these results should not be treated as proof of real industrial
+deployment performance.
+
+Recommended model for Day 5:
+Decision Tree Classifier, because it provides better recall and
+F1-score for the current failure-detection objective.

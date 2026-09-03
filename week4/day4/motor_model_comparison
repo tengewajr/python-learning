@@ -1,0 +1,258 @@
+# Day 4 – Improving & Understanding the Model
+# Compare Decision Tree and Random Forest
+
+import pandas as pd
+
+import matplotlib.pyplot as plt
+
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+
+from sklearn.metrics import (
+    accuracy_score,
+    precision_score,
+    recall_score,
+    f1_score,
+    confusion_matrix
+)
+
+
+print("===== MOTOR MODEL COMPARISON =====")
+
+
+# STEP 1 — Load the dataset
+df = pd.read_csv("week4/day1/ai4i2020.csv")
+
+
+# STEP 2 — Select features and target
+X = df[
+    [
+        "Type",
+        "Air temperature [K]",
+        "Process temperature [K]",
+        "Rotational speed [rpm]",
+        "Torque [Nm]",
+        "Tool wear [min]"
+    ]
+]
+
+y = df["Machine failure"]
+
+
+# STEP 3 — Encode the categorical feature
+X = pd.get_dummies(
+    X,
+    columns=["Type"],
+    dtype=int
+)
+
+
+# STEP 4 — Split the dataset
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42,
+    stratify=y
+)
+
+
+print("\nTraining records:", len(X_train))
+print("Testing records:", len(X_test))
+
+
+# ==========================================
+# MODEL 1 — DECISION TREE
+# ==========================================
+
+decision_tree = DecisionTreeClassifier(
+    random_state=42
+)
+
+decision_tree.fit(
+    X_train,
+    y_train
+)
+
+dt_predictions = decision_tree.predict(X_test)
+
+
+dt_accuracy = accuracy_score(
+    y_test,
+    dt_predictions
+)
+
+dt_precision = precision_score(
+    y_test,
+    dt_predictions,
+    zero_division=0
+)
+
+dt_recall = recall_score(
+    y_test,
+    dt_predictions,
+    zero_division=0
+)
+
+dt_f1 = f1_score(
+    y_test,
+    dt_predictions,
+    zero_division=0
+)
+
+
+# ==========================================
+# MODEL 2 — RANDOM FOREST
+# ==========================================
+
+random_forest = RandomForestClassifier(
+    n_estimators=100,
+    random_state=42
+)
+
+random_forest.fit(
+    X_train,
+    y_train
+)
+
+rf_predictions = random_forest.predict(X_test)
+
+
+rf_accuracy = accuracy_score(
+    y_test,
+    rf_predictions
+)
+
+rf_precision = precision_score(
+    y_test,
+    rf_predictions,
+    zero_division=0
+)
+
+rf_recall = recall_score(
+    y_test,
+    rf_predictions,
+    zero_division=0
+)
+
+rf_f1 = f1_score(
+    y_test,
+    rf_predictions,
+    zero_division=0
+)
+
+
+# ==========================================
+# MODEL COMPARISON
+# ==========================================
+
+print("\n===== MODEL COMPARISON =====")
+
+print(
+    "\nModel              Accuracy    Precision    Recall    F1-score"
+)
+
+print("-"*60)
+print(
+    f"Decision Tree      {dt_accuracy:.2%}      "
+    f"{dt_precision:.2%}       "
+    f"{dt_recall:.2%}      "
+    f"{dt_f1:.2%}"
+)
+
+print(
+    f"Random Forest      {rf_accuracy:.2%}      "
+    f"{rf_precision:.2%}       "
+    f"{rf_recall:.2%}      "
+    f"{rf_f1:.2%}"
+)
+
+# ==========================================
+# EXPLAIN CONFUSION MATRIX
+# ==========================================
+
+def explain_confusion_matrix(matrix, model_name):
+    tn, fp, fn, tp = matrix.ravel()
+
+    print(f"\n===== {model_name} CONFUSION MATRIX INTERPRETATION =====")
+
+    print(f"True Negatives (TN):  {tn}")
+    print("  Healthy motors correctly predicted as healthy.")
+
+    print(f"False Positives (FP): {fp}")
+    print("  Healthy motors incorrectly predicted as failures producing false alarms.")
+
+    print(f"False Negatives (FN): {fn}")
+    print("  Failed motors incorrectly predicted as healthy producing missed failures.")
+
+    print(f"True Positives (TP):  {tp}")
+    print("  Failed motors correctly detected as failures.")
+
+# ==========================================
+# CONFUSION MATRICES
+# ==========================================
+
+dt_cm = confusion_matrix(y_test, dt_predictions)
+rf_cm = confusion_matrix(y_test, rf_predictions)
+
+print("\n===== DECISION TREE CONFUSION MATRIX =====")
+print(dt_cm)
+
+explain_confusion_matrix(
+    dt_cm,
+    "DECISION TREE"
+)
+
+print("\n===== RANDOM FOREST CONFUSION MATRIX =====")
+print(rf_cm)
+
+explain_confusion_matrix(
+    rf_cm,
+    "RANDOM FOREST"
+)
+
+# ==========================================
+# FEATURE IMPORTANCE
+# ==========================================
+
+print("\n===== RANDOM FOREST FEATURE IMPORTANCE =====")
+
+feature_importance = pd.Series(
+    random_forest.feature_importances_,
+    index=X.columns
+).sort_values(ascending=False)
+
+print(feature_importance.round(2))
+
+#Interpret the feature importance values in percentage
+print("\nFeature Importance in Percentage:")
+feature_importance_percentage = feature_importance * 100
+print(f"{feature_importance_percentage.round(2).astype(str)}%")
+
+# ==========================================
+# FEATURE IMPORTANCE GRAPH
+# ==========================================
+
+plt.figure(figsize=(10, 6))
+
+sorted_importance = feature_importance_percentage.sort_values(ascending=False)
+
+ax = sorted_importance.plot(
+    kind="barh"
+)
+
+plt.title("Random Forest Feature Importance")
+plt.xlabel("Importance (%)")
+plt.ylabel("Feature Name")
+
+for index, value in enumerate(sorted_importance):
+    ax.text(
+        value + 0.005,
+        index,
+        f"{value:.2f}",
+        va="center"
+    )
+
+plt.tight_layout()
+plt.show()
