@@ -1,0 +1,35 @@
+WEEK 5 – DAY 1
+TIME-SERIES ANALYSIS
+
+Dataset:
+The motor sensor dataset contains 100 readings recorded at one-minute
+intervals from 09:00 to 10:39 on 4 September 2026.
+
+1. Which sensor changes the most over time?
+
+The sensors showed different magnitudes of change over time. The largest
+observed temperature increase was 22.78, the largest RPM decrease was
+80 RPM, and the largest current increase was 2.73 A. Since these
+variables use different units, their raw changes cannot be directly
+compared to determine which sensor is most variable without normalization.
+
+2. Which sensor appears to be the most stable?
+
+RPM appears relatively stable at the hourly scale because its hourly
+average changed only slightly from 1445.42 RPM during the 09:00–09:59
+period to 1446.72 RPM during the available 10:00–10:39 period.
+
+3. Are there periods where several sensors change at the same time?
+
+Yes, multiple sensor variables can change during the same monitoring
+period. The hourly averages show that temperature and current increased
+between the two periods. A minute-by-minute comparison would be required
+to identify exact timestamps where several sensors change simultaneously.
+
+4. Why might the sequence of readings matter when monitoring a motor?
+
+The sequence matters because motor condition develops over time. A single
+sensor reading may not reveal an important problem, whereas a sequence
+of readings can reveal trends, gradual deterioration, sudden changes and
+relationships between sensors. These temporal patterns can be useful for
+anomaly detection and predictive maintenance.
