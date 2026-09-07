@@ -1,0 +1,27 @@
+WEEK 5 – DAY 2
+ROLLING AVERAGES & SENSOR TRENDS
+
+1. What is the purpose of a rolling average?
+
+A rolling average smooths short-term fluctuations and noise in sensor
+readings, making the overall trend easier to observe.
+
+2. What did the 5-reading rolling average show?
+
+The rolling average produced a smoother representation of temperature
+and RPM compared with the original sensor readings. This makes broader
+changes in sensor behavior easier to observe.
+
+3. If temperature slowly increases for 30 minutes, is that more useful
+than one single high temperature reading?
+
+Yes. A sustained increase may indicate a developing trend in motor
+behavior, while a single high reading could result from temporary noise,
+a short-term load change or measurement error. A continuous trend can
+therefore provide more useful information for predictive maintenance.
+
+4. Why are rolling averages useful for motor monitoring?
+
+They reduce the influence of small fluctuations and help reveal
+underlying trends. This can support anomaly detection and feature
+engineering before Machine Learning is applied.
