@@ -1,0 +1,32 @@
+WEEK 5 – DAY 3
+SENSOR CORRELATION ANALYSIS
+
+The correlation analysis was performed using Temperature, Voltage,
+Current and RPM from the motor sensor dataset.
+
+1. Which two sensors have the strongest positive relationship?
+
+Current and RPM have the strongest positive relationship with a
+correlation coefficient of +0.12. However, this is still a very weak
+positive relationship.
+
+2. Which two have the strongest negative relationship?
+
+Temperature and RPM have the strongest negative relationship with a
+correlation coefficient of -0.08. This is still a very weak negative
+relationship.
+
+3. Does correlation prove that one sensor causes another to change?
+
+No. Correlation only indicates the degree to which two variables are
+associated. It does not prove that one variable causes changes in
+another variable. (Correlation does not prove/mean causation)
+
+4. Which relationships might be useful for predicting motor failure?
+
+The current dataset does not show strong linear relationships between
+the sensors. Current and RPM have the largest positive correlation
+(+0.12), while Temperature and RPM have the largest negative correlation
+(-0.08), but both relationships are weak. Individual sensor values and
+engineered time-based features may still be useful for Machine Learning
+when considered together.
