@@ -1,0 +1,44 @@
+WEEK 5 – DAY 4
+ANOMALY DETECTION
+
+1. What makes a reading an anomaly?
+
+A reading can be considered an anomaly when it significantly differs
+from expected or defined normal behavior. In this exercise, a reading
+was flagged when Temperature exceeded 75, RPM was below 1420, or Current
+exceeded 9.5.
+
+2. Can every anomaly mean that the motor is failing?
+
+No. An anomaly only indicates unusual behavior. It may be caused by
+temporary operating conditions, sensor noise, measurement errors,
+environmental changes, or an actual developing fault.
+
+3. What other reasons could cause an unusual reading?
+
+Unusual readings may result from sensor malfunction, electrical
+interference, sudden load changes, motor startup or shutdown, environmental
+conditions, communication errors, or data-processing errors.
+
+4. Why could anomaly detection be useful in predictive maintenance?
+
+Anomaly detection can identify unusual motor behavior early and alert
+operators to investigate the condition before it develops into a more
+serious fault or unexpected failure.
+
+Results:
+
+Threshold-based detection:
+Temperature anomalies = 15
+RPM anomalies = 22
+Current anomalies = 23
+Overall anomalous readings = 49
+Normal readings = 51
+
+Statistical detection using mean ± 2 standard deviations:
+Temperature anomalies = 0
+Current anomalies = 0
+RPM anomalies = 0
+
+The difference between the two methods shows that the choice of anomaly
+detection method and threshold affects the detected results.
