@@ -1,0 +1,56 @@
+WEEK 6 – DAY 1
+UNDERSTANDING FAILURE PREDICTION
+
+Failure Statistics
+------------------
+Total records: 10,000
+Failure records: 339
+Non-failure records: 9,661
+Failure percentage: 3.39%
+
+Selected Failure Case
+---------------------
+Selected failure: UDI 51
+Motor Type: L
+
+Air Temperature: 298.9 K
+Process Temperature: 309.1 K
+Rotational Speed: 2861 rpm
+Torque: 4.6 Nm
+Tool Wear: 143 min
+
+Observations Before the Selected Failure
+----------------------------------------
+The records immediately preceding UDI 51 showed considerable variation
+in rotational speed and torque. At the failure record, RPM increased
+from 1412 rpm to 2861 rpm, while torque decreased from 44.1 Nm to
+4.6 Nm. Air temperature remained almost unchanged and process temperature
+changed only slightly. Tool wear increased from 140 to 143 minutes.
+
+1. What happened before the failure?
+
+The selected failure record was preceded by varying operating conditions.
+At the failure record, a very large increase in RPM and a sharp decrease
+in torque were observed.
+
+2. Which sensor/operating variable changed the most?
+
+RPM had the largest absolute numerical change, increasing by 1449 rpm.
+Torque also changed substantially, decreasing by 39.5 Nm.
+
+3. Were multiple variables changing together?
+
+Yes. RPM increased sharply while torque decreased sharply at the selected
+failure transition. Temperature and tool wear showed only small changes.
+
+4. How much time passed between the first unusual reading and failure?
+
+The exact time interval cannot be determined because the AI4I dataset
+does not contain timestamps for a longitudinal sequence of one motor.
+UDI order was used only as a dataset sequence for exploratory analysis.
+
+Important Limitation
+--------------------
+The observations above should not be interpreted as a true temporal
+pre-failure sequence for one motor. The AI4I dataset is not a timestamped
+longitudinal dataset for individual motors.

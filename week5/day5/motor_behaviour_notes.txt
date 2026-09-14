@@ -1,0 +1,53 @@
+WEEK 5 – FINAL MOTOR BEHAVIOR ANALYSIS
+
+1. What does normal motor behavior look like?
+
+In this simulated dataset, normal motor behavior is characterized by
+average Temperature of 65.66, Current of 8.56 and RPM of 1445.94.
+Individual readings fluctuate considerably, while rolling averages provide
+a smoother representation of the underlying behavior.
+
+2. What abnormal behavior did you identify?
+
+Using the selected learning thresholds, 49 out of 100 readings were
+flagged as potential anomalies. The analysis also identified a maximum
+temperature increase of 22.78, maximum RPM decrease of 80 RPM, and
+maximum current increase of 2.73 A. These indicate unusual behavior but
+do not confirm motor failure.
+
+3. Which sensors appear to be related?
+
+Current and RPM showed the strongest positive relationship (r = 0.12),
+while Temperature and RPM showed the strongest negative relationship
+(r = -0.08). Both relationships were very weak, indicating no strong
+linear relationships between the measured sensors in this dataset.
+
+4. Which sensors appear most useful for identifying abnormal behavior?
+
+Current and RPM produced the highest numbers of threshold-based anomaly
+flags, with 23 and 22 respectively. Temperature also provides useful
+information, especially when analyzed using changes and rolling trends.
+A stronger conclusion would require real motor data and model-based
+feature evaluation.
+
+5. What new features did you create?
+
+The engineered features were Temperature Change, RPM Change,
+5-reading Rolling Temperature, 5-reading Rolling Current, and a binary
+Anomaly Flag.
+
+6. If building an ML model to predict failure, which features would you use?
+
+I would consider Temperature, Current, Voltage and RPM together with
+Temperature Change, RPM Change, Rolling Temperature and Rolling Current.
+Anomaly could also be considered if calculated without introducing
+target leakage.
+
+7. What additional information would make prediction more reliable?
+
+More reliable prediction would require longer-term real motor data,
+vibration and acoustic measurements, electrical measurements, motor
+load or torque information, operating conditions, maintenance history,
+actual fault records and accurately labelled failure events. Data from
+different motor types and operating conditions would also improve
+reliability.
