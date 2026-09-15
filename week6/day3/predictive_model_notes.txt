@@ -1,0 +1,53 @@
+WEEK 6 – DAY 3
+PREDICTIVE MAINTENANCE MODEL
+
+A Random Forest Classifier was trained using five motor operating
+features: Air Temperature, Process Temperature, Rotational Speed,
+Torque and Tool Wear. The target variable was Failure_Soon.
+
+A chronological 80/20 split was used, with the earlier records used for
+training and the later records used for testing.
+
+Results:
+Accuracy: 91.00%
+Precision: 36.92%
+Recall: 14.72%
+F1-score: 21.05%
+
+Confusion Matrix:
+[[1795   41]
+ [ 139   24]]
+
+TN = 1795
+FP = 41
+FN = 139
+TP = 24
+
+The model correctly identified most records belonging to the majority
+Failure_Soon = 0 class, resulting in relatively high accuracy. However,
+recall was only 14.72%, meaning that the model detected only 24 of the
+163 actual Failure_Soon cases in the test set. It missed 139 impending
+failure cases.
+
+This demonstrates why accuracy alone is insufficient for predictive
+maintenance, particularly with imbalanced data. False negatives are
+important because they represent impending failures that the model did
+not detect.
+
+Feature importance ranking:
+1. Tool Wear – 0.27
+2. Air Temperature – 0.22
+3. Process Temperature – 0.20
+4. Rotational Speed – 0.16
+5. Torque – 0.16
+
+Tool Wear had the highest feature importance in this Random Forest
+model. Feature importance indicates predictive usefulness in the model
+and does not prove causation.
+
+Important limitation:
+The Failure_Soon target was constructed using the next five UDI-order
+records because the AI4I dataset does not contain a timestamped
+longitudinal sequence for individual motors. Therefore, these results
+represent a simplified learning exercise and should not be interpreted
+as real-world time-to-failure prediction performance.
