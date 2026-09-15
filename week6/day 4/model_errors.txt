@@ -1,0 +1,48 @@
+WEEK 6 - DAY 4
+MODEL ERRORS ANALYSIS
+=====================
+
+1. How many false negatives did you have?
+
+The model produced 139 false negatives.
+
+A false negative occurred when the actual value was
+Failure_Soon = 1 but the model predicted 0.
+
+
+2. How many false positives?
+
+The model produced 41 false positives.
+
+A false positive occurred when the actual value was
+Failure_Soon = 0 but the model predicted 1.
+
+
+3. Which type of error is more dangerous?
+
+False negatives are more dangerous in predictive maintenance
+because they represent impending-failure cases that the model
+failed to warn about.
+
+Missing a genuine failure risk can be more costly than
+generating an unnecessary warning.
+
+
+4. Which sensor/feature was most important?
+
+Tool wear [min] was the most important feature according to
+the Random Forest model, with an importance value of 0.267.
+
+
+5. What could cause the model to make incorrect predictions?
+
+The model may make incorrect predictions because the five
+selected features do not always provide a clear distinction
+between Failure_Soon classes. The dataset is also imbalanced,
+with relatively few positive cases compared with normal cases.
+
+Another important limitation is that the Failure_Soon target
+was derived using the next five records in UDI order rather
+than a true timestamped sequence for the same physical motor.
+Therefore, the target is a simplified learning target and may
+not represent a real physical time-to-failure relationship.
