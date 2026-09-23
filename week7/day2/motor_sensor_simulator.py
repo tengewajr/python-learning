@@ -38,7 +38,7 @@ FAULT = {
 
 
 # ==================================================
-# 1. GET TARGET CONDITIONS
+# 2. GET TARGET CONDITIONS
 # ==================================================
 
 def get_target_condition(mode):
@@ -137,9 +137,16 @@ mode = input(
     "(healthy / warning / fault): "
 ).strip().lower()
 
-number_of_readings = int (
+try:
+    number_of_readings = int (
     input("Enter number of sensor readings: ")
 )
+    if number_of_readings <= 0:
+        raise ValueError("Number of readings must be greater than 0.")
+
+except ValueError as e:
+    print(f"Input error: {e}")
+    exit()
 
 # ==================================================
 # 6. RUN SIMULATION
@@ -165,6 +172,10 @@ for i in range (number_of_readings):
 
     print(
         f"Time         : {reading['timestamp']}"
+    )
+
+    print(
+        f"Progress     : {progress * 100.0:.2f}%"
     )
 
     print(
