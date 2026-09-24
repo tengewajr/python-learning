@@ -1,9 +1,10 @@
-# Day 2
+# Day 2 / Day 3
 # Motor Sensor Simulator
 # Simulates an ESP32-connected industrial motor
 
 import time
 import random
+import requests
 from datetime import datetime
 
 
@@ -156,6 +157,8 @@ print("\n==============================================")
 print(f"        STARTING {mode.upper()} SIMULATION")
 print("==============================================")
 
+API_URL = "http://127.0.0.1:8000/sensor-data"
+
 for i in range (number_of_readings):
     # Progress moves from 0.0 -> 1.0
     if number_of_readings == 1:
@@ -198,10 +201,49 @@ for i in range (number_of_readings):
         f"RPM          : {reading['rpm']} rpm"
     )
 
-    # Wait before taking the next sample.
+    print("\n==============================================")
+    print("        PREPARE DATA FOR API             ")
+    print("==============================================")
+
+    sensor_data = {
+        "temperature": reading["temperature"],
+        "vibration": reading["vibration"],
+        "current": reading["current"],
+        "sound": reading["sound"],
+        "rpm": reading["rpm"]
+    }
+
+    # ==================================================
+    # 8. SEND DATA TO FASTAPI
+    # ==================================================
+
+    try:
+
+        response = requests.post(
+            API_URL,
+            json=sensor_data,
+            timeout=5
+        )
+
+        response.raise_for_status()
+
+        print("\nData sent successfully.")
+
+    except requests.exceptions.RequestException as error:
+
+        print(
+        f"\nFailed to send data: {error}"
+        )
+
+    # Wait before next reading
     if i < number_of_readings - 1:
         time.sleep(2)
 
+# ==================================================
+# 9. SIMULATION COMPLETE
+# ==================================================
+
 print("\n==============================================")
-print("        SENSOR SIMULATION COMPLETE              ")
+print("       SENSOR SIMULATION COMPLETE")
 print("==============================================")
+
